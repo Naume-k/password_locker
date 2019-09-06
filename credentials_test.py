@@ -27,13 +27,25 @@ class TestCredentials(unittest.TestCase):
         self.new_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list), 1)
 
+    def test_delete_credentials(self):
+            
+        '''
+        test_delete_credentials to test if we can remove a credentials from our credentials list
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Test","user", "#0782386439?") # new credentials
+        test_credentials.save_credentials()
+
+        self.new_credentials.delete_credentials()# Deleting a credentials object
+        self.assertEqual(len(Credentials.credentials_list),1)    
+
     def test_save_multiple_credential(self):
         '''
         test_save_multiple_credentials to check if we can save multiple credential
         objects to our credentials_list
         '''
         self.new_credentials.save_credentials()
-        test_credentials = Credentials("Test","user","#0782386439?") # new contact
+        test_credentials = Credentials("Test","user","#0782386439?") # new credentials
         test_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),2)
 
@@ -47,13 +59,10 @@ class TestCredentials(unittest.TestCase):
         '''
         test to check if we can find credentials by name and display information
         '''
-
         self.new_credentials.save_credentials()
-        test_credentials = Credentials("Test","user","#0782386439?") # new contact
+        test_credentials = Credentials("Test","user","#0782386439?") # new credentials
         test_credentials.save_credentials()
-
         found_credentials = Credentials.find_by_name("Test")
-
         self.assertEqual(found_credentials.account_name,test_credentials.account_name)
 
     def test_display_all_credentials(self):
