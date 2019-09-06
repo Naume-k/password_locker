@@ -9,11 +9,11 @@ class User:
 
     user_list = []    #empty user list
 
-#     def save_user(self):
-#         """
-#         save_user method saves user objects into user_list
-#         """
-#         self.user_list.append(self)
+    def save_user(self):
+        """
+        save_user method saves user objects into user_list
+        """
+        self.user_list.append(self)
 
 # if __name__ == '__main__':
 #     main()
