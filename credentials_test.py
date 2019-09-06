@@ -43,4 +43,16 @@ class TestCredentials(unittest.TestCase):
             '''
             Credentials.credentials_list = []
                 
-    
+    def test_find_credentials_by_name(self):
+        '''
+        test to check if we can find credentials by name and display information
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credentials = Credentials("Test","user","#0782386439?") # new contact
+        test_credentials.save_credentials()
+
+        found_credentials = Credentials.find_by_name("#0782386439?")
+
+        self.assertEqual(found_credentials.account_name,test_credentials.account_name)
+            
