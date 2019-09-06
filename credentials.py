@@ -9,8 +9,19 @@ class Credentials:
 
     credentials_list = []
 
+    # saving credentials
     def save_credentials(self):
         """
         Method that saves credential objects into credentials_list
         """
         self.credentials_list.append(self)
+
+    # deleting
+    def delete_credential(self):
+        """
+        Method which deletes a particular credential
+        """
+        Credentials.credentials_list.remove(self)
+
+        
+
