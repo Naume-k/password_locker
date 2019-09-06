@@ -37,5 +37,10 @@ class TestCredentials(unittest.TestCase):
         test_credentials.save_credential()
         self.assertEqual(len(Credentials.credentials_list),2)
 
-        
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Credentials.credentials_list = []
+                
     
