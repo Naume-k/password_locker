@@ -9,4 +9,8 @@ class Credentials:
 
     credentials_list = []
 
-    
+    def save_credentials(self):
+        """
+        Method that saves credential objects into credentials_list
+        """
+        self.credentials_list.append(self)
