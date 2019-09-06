@@ -17,7 +17,7 @@ class Credentials:
         self.credentials_list.append(self)
 
     # deleting
-    def delete_credential(self):
+    def delete_credentials(self):
         """
         Method which deletes a particular credential
         """
@@ -34,12 +34,12 @@ class Credentials:
             user that matches the name.
         '''   
 
-        for credential in cls.credentials_list:
-            if credential.account_name == account_name:
-                return credential
+        for credentials in cls.credentials_list:
+            if credentials.account_name == name:
+                return credentials
 
     @classmethod
-    def credential_exists(cls, name):
+    def credentials_exists(cls, name):
         """
         Method to check whether a credential exists
         Args:
@@ -47,8 +47,8 @@ class Credentials:
         boolean: True or False depending if the user exists
         """
 
-        for credential in cls.credentials_list:
-            if credential.account_name == name:
+        for credentials in cls.credentials_list:
+            if credentials.account_name == name:
                 return True
         return False
 

@@ -32,9 +32,9 @@ class TestCredentials(unittest.TestCase):
         test_save_multiple_credentials to check if we can save multiple credential
         objects to our credentials_list
         '''
-        self.new_credentials.save_credential()
+        self.new_credentials.save_credentials()
         test_credentials = Credentials("Test","user","#0782386439?") # new contact
-        test_credentials.save_credential()
+        test_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),2)
 
     def tearDown(self):
@@ -52,7 +52,16 @@ class TestCredentials(unittest.TestCase):
         test_credentials = Credentials("Test","user","#0782386439?") # new contact
         test_credentials.save_credentials()
 
-        found_credentials = Credentials.find_by_name("#0782386439?")
+        found_credentials = Credentials.find_by_name("Test")
 
         self.assertEqual(found_credentials.account_name,test_credentials.account_name)
-            
+
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials saved
+        '''
+
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+
+if __name__ == '__main__':
+    unittest.main()        
