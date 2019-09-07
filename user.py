@@ -15,5 +15,17 @@ class User:
         """
         self.user_list.append(self)
 
+        # check user
+    @classmethod
+	def check_user(cls,user_name,password):
+		'''
+		Method that checks if the name and password entered match entries in the users_list
+		'''
+		current_user = ''
+		for user in User.users_list:
+			if (user.user_name == user_name and user.password == password):
+				current_user = user.user_name
+		return current_user
+
 if __name__ == '__main__':
     main()
