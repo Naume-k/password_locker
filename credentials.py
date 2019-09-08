@@ -19,10 +19,10 @@ class Credentials:
 
         # generating password
     def generate_password(size=8, char=string.ascii_uppercase+string.ascii_lowercase+string.digits):
-		'''
+        '''
 		Function to generate an 8 character password for a credential
 		'''
-		gen_pass=''.join(random.choice(char) for _ in range(size))
+	    gen_pass=''.join(random.choice(char) for _ in range(size))
 		return gen_pass
 
     # deleting
@@ -67,7 +67,7 @@ class Credentials:
         Method which displays all current credentials
         """
         user_credentials_list = []
-		for credentials in cls.credentials_list:
+	    for credentials in cls.credentials_list:
 			if credential.account_name == account_name:
 				user_credentials_list.append(credentials)
 		return user_credentials_list

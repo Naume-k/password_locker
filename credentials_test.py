@@ -25,6 +25,8 @@ class TestCredentials(unittest.TestCase):
         Method that tests whether the new credential created has been saved
         """
         self.new_credentials.save_credentials()
+        Istagram = Credential('Istagram','instauser','12345678')
+		Istagram.save_credentials()
         self.assertEqual(len(Credentials.credentials_list), 1)
 
     def test_delete_credentials(self):
@@ -54,23 +56,31 @@ class TestCredentials(unittest.TestCase):
             tearDown method that does clean up after each test case has run.
             '''
             Credentials.credentials_list = []
-                
-    def test_find_credentials_by_name(self):
+            User.users_list = []
+
+    def test_find_credentials_by_account_name(self):
         '''
         test to check if we can find credentials by name and display information
         '''
         self.new_credentials.save_credentials()
         test_credentials = Credentials("Test","user","#0782386439?") # new credentials
         test_credentials.save_credentials()
-        found_credentials = Credentials.find_by_name("Test")
+        found_credentials = Credentials.find_by_account_name("Test")
         self.assertEqual(found_credentials.account_name,test_credentials.account_name)
 
     def test_display_all_credentials(self):
         '''
         method that returns a list of all credentials saved
         '''
+        self.new_credentials.save_credentials()
+		Istagram = Credentials('Istagram','instauser','12345678')
+		Istagram.save_credentials()
+		gmail = Credential('Gmail','kobz','kobz1234')
+		gmail.save_credentials()
+		self.assertEqual(len(Credentials.display_credentials(Istagram.user_name)),2)
 
-        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
+
+        # self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 
 if __name__ == '__main__':
     unittest.main()        

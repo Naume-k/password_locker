@@ -25,6 +25,22 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list), 1)
 
+    def test_check_user(self):
+		'''
+		Function to test whether the login in function check_user works as expected
+		'''
+		self.new_user = User('App_User','12345678')
+		self.new_user.save_user()
+		user2 = User('Nana','12345678')
+		user2.save_user()
+
+		for user in User.users_list:
+			if user.user_name == user2.user_name and user.password == user2.password:
+				current_user = user.user_name
+		return current_user
+
+		self.assertEqual(current_user,Credential.check_user(user2.password,user2.first_name))
+
 if __name__ == '__main__':
     unittest.main()
     
