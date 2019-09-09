@@ -8,11 +8,15 @@ Password Locker is a terminal run python application that allows users to store 
 * pyperclip
 ### Cloning
 * In your terminal:
+
 $ git clone https://github.com/Naume-k/Password_locker/
+
 $ cd Password_locker
 ## Running the Application
 * To run the application, in your terminal:
+
  $ chmod +x password_locker.py
+ 
  $ ./password_locker.py
  ## Known Bugs.
  Since there is no database to support the app, once you exit or log out of a session you loose all the credentials and created user. You have to create a new user for every session. You can still use the default login but if you exit the app, you will still loose all the credentials you created.
